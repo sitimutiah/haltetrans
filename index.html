@@ -51,7 +51,7 @@
     <style>
 		#map {
 			width: 100%;
-			height: 100%;
+			height: 500px;
 			background-color: grey;
 		}
 		.demo-layout-transparent {
@@ -103,13 +103,14 @@
 			// prompted by your browser. If you see the error "The Geolocation service
 			// failed.", it means you probably did not give permission for the browser to
 			// locate you.
-			var map, infoWindow;
+			var map, infoWindow, marker;
 			function initMap() {
 			map = new google.maps.Map(document.getElementById('map'), {
-			  center: {lat: -34.397, lng: 150.644},
+			  center: {lat: 110.3704119, lng: -7.7853871},
 			  zoom: 16
 			});
 			infoWindow = new google.maps.InfoWindow;
+			marker = new google.maps.Marker;
 
 			// Try HTML5 geolocation.
 			if (navigator.geolocation) {
@@ -119,16 +120,22 @@
 			      lng: position.coords.longitude
 			    };
 
-			    infoWindow.setPosition(pos);
-			    infoWindow.setContent('Location found.');
-			    infoWindow.open(map);
+			    // membuat tampilan lokasi pengguna saat ini
+			    infoWindow.setContent('Anda disini');
+			    marker.setPosition(pos);
+			    marker.setTitle('Anda disini');
+			    marker.setMap(map);
+			    marker.addListener('click', function(){
+			    	infoWindow.open(map, marker);
+			    });
+			    
 			    map.setCenter(pos);
 			  }, function() {
-			    handleLocationError(true, infoWindow, map.getCenter());
+			    handleLocationError(true, marker, map.getCenter());
 			  });
 			} else {
 			  // Browser doesn't support Geolocation
-			  handleLocationError(false, infoWindow, map.getCenter());
+			  handleLocationError(false, marker, map.getCenter());
 			}
 			}
 
@@ -144,6 +151,7 @@
 		</script>
 		<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBzMX-TVEnekihhupXcIu5EOVEuR64uG0A&amp;callback=initMap">
 		</script>
+		<script async defer src="https://maps.googleapis.com/maps/api/place/textsearch/xml?query=halte+trans+jogja&key=AIzaSyABCY_GnJfGXDdoFLaUHajhWA7HSRLI03w"></script>
 		<script src="material.min.js"></script>
 	</div>
 </body>

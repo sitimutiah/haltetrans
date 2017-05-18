@@ -104,53 +104,56 @@
 			// prompted by your browser. If you see the error "The Geolocation service
 			// failed.", it means you probably did not give permission for the browser to
 			// locate you.
-			var map, infoWindow, marker;
+			var map, infoWindow, marker, cariHalte;
 			function initMap() {
-			map = new google.maps.Map(document.getElementById('map'), {
-			  center: {lat: 110.3704119, lng: -7.7853871},
-			  zoom: 16
-			});
-			infoWindow = new google.maps.InfoWindow;
-			marker = new google.maps.Marker;
+				map = new google.maps.Map(document.getElementById('map'), {
+				  center: {lat: 110.3704119, lng: -7.7853871},
+				  zoom: 16
+				});
 
-			// Try HTML5 geolocation.
-			if (navigator.geolocation) {
-			  navigator.geolocation.getCurrentPosition(function(position) {
-			    var pos = {
-			      lat: position.coords.latitude,
-			      lng: position.coords.longitude
-			    };
+				infoWindow = new google.maps.InfoWindow;
+				marker = new google.maps.Marker;
+				
 
-			    // membuat tampilan lokasi pengguna saat ini
-			    infoWindow.setContent('Anda disini');
-			    marker.setPosition(pos);
-			    marker.setTitle('Anda disini');
-			    marker.setMap(map);
-			    marker.addListener('click', function(){
-			    	infoWindow.open(map, marker);
-			    });
-			    
-			    map.setCenter(pos);
-			  }, function() {
-			    handleLocationError(true, marker, map.getCenter());
-			  });
-			} else {
-			  // Browser doesn't support Geolocation
-			  handleLocationError(false, marker, map.getCenter());
-			}
-			}
+				// Try HTML5 geolocation.
+				if (navigator.geolocation) {
+				  navigator.geolocation.getCurrentPosition(function(position) {
+				    var pos = {
+				      lat: position.coords.latitude,
+				      lng: position.coords.longitude
+				    };
 
-			function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-			infoWindow.setPosition(pos);
-			infoWindow.setContent(browserHasGeolocation ?
-			                      'Error: The Geolocation service failed.' :
-			                      'Error: Your browser doesn\'t support geolocation.');
-			infoWindow.open(map);
+				    // membuat tampilan lokasi pengguna saat ini
+				    infoWindow.setContent('Anda disini');
+				    marker.setPosition(pos);
+				    marker.setTitle('Anda disini');
+				    marker.setMap(map);
+				    marker.addListener('click', function(){
+				    	infoWindow.open(map, marker);
+				    });
+				    
+				    map.setCenter(pos);
+				    
+				  }, function() {
+				    handleLocationError(true, marker, map.getCenter());
+				  });
+				} else {
+				  // Browser doesn't support Geolocation
+				  handleLocationError(false, marker, map.getCenter());
+				}
+				}
+
+				function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+				infoWindow.setPosition(pos);
+				infoWindow.setContent(browserHasGeolocation ?
+				                      'Error: The Geolocation service failed.' :
+				                      'Error: Your browser doesn\'t support geolocation.');
+				infoWindow.open(map);
 			}
 		</script>
-		<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBzMX-TVEnekihhupXcIu5EOVEuR64uG0A&amp;callback=initMap">
+		<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBzMX-TVEnekihhupXcIu5EOVEuR64uG0A&amp;libraries=places&amp;callback=initMap">
 		</script>
-		<script async defer src="https://maps.googleapis.com/maps/api/place/textsearch/xml?query=halte+trans+jogja&key=AIzaSyABCY_GnJfGXDdoFLaUHajhWA7HSRLI03w"></script>
+		<!-- <script async defer src="https://maps.googleapis.com/maps/api/place/textsearch/xml?query=halte+trans+jogja&key=AIzaSyABCY_GnJfGXDdoFLaUHajhWA7HSRLI03w"></script> -->
 		<script src="material.min.js"></script>
 	</div>
 </body>

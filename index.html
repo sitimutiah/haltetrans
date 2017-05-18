@@ -111,7 +111,7 @@
 			});
 			infoWindow = new google.maps.InfoWindow;
 			marker = new google.maps.Marker;
-
+			setAction(map);
 			// Try HTML5 geolocation.
 			if (navigator.geolocation) {
 			  navigator.geolocation.getCurrentPosition(function(position) {
@@ -147,7 +147,33 @@
 			infoWindow.open(map);
 			}
 
-
+			function setAction(map){  
+            
+	          google.maps.event.addListener(map, "rightclick", function(event) {  
+	    
+	          if(confirm("Tandai Titik Ini? (klik pada tanda yang muncul untuk melihat pilihan)")){  
+	            var lat = event.latLng.lat();  
+	            var lng = event.latLng.lng();  
+	              
+	            var siteLatLng = new google.maps.LatLng(lat, lng);  
+	            var marker = new google.maps.Marker({  
+	                position: siteLatLng,  
+	                map: map,  
+	                title: "add data",  
+	                zIndex: 100,  
+	                html: "ddd"  
+	   
+	              });  
+	             google.maps.event.addListener(marker, "mouseover", function () {  
+	                  
+	                infowindow.setContent(this.html);  
+	                infowindow.open(map, this);  
+	              });  
+	    
+	          }  
+	            
+	        });  
+	        }  
 		</script>
 		<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBzMX-TVEnekihhupXcIu5EOVEuR64uG0A&amp;callback=initMap">
 		</script>

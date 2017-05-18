@@ -98,7 +98,6 @@
 		<div id="map"></div>
 		<!-- tombol untuk ambil lokasi pengguna -->
 		<button id="ambil-lokasi" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-color--accent mdl-color-text--white" data-upgraded=",MaterialButton,MaterialRipple"><i class="material-icons">my_location</i></button>
-		
 		<script type="text/javascript">
 			// Note: This example requires that you consent to location sharing when
 			// prompted by your browser. If you see the error "The Geolocation service
@@ -106,6 +105,7 @@
 			// locate you.
 			var map, infoWindow, marker, cariHalte;
 			function initMap() {
+<<<<<<< HEAD
 				map = new google.maps.Map(document.getElementById('map'), {
 				  center: {lat: 110.3704119, lng: -7.7853871},
 				  zoom: 16
@@ -114,6 +114,22 @@
 				infoWindow = new google.maps.InfoWindow;
 				marker = new google.maps.Marker;
 				
+=======
+			map = new google.maps.Map(document.getElementById('map'), {
+			  center: {lat: 110.3704119, lng: -7.7853871},
+			  zoom: 16
+			});
+			infoWindow = new google.maps.InfoWindow;
+			marker = new google.maps.Marker;
+			setAction(map);
+			// Try HTML5 geolocation.
+			if (navigator.geolocation) {
+			  navigator.geolocation.getCurrentPosition(function(position) {
+			    var pos = {
+			      lat: position.coords.latitude,
+			      lng: position.coords.longitude
+			    };
+>>>>>>> 03fe49e6c8994f393821cdca9763f7976aab6770
 
 				// Try HTML5 geolocation.
 				if (navigator.geolocation) {
@@ -150,6 +166,34 @@
 				                      'Error: Your browser doesn\'t support geolocation.');
 				infoWindow.open(map);
 			}
+
+			function setAction(map){  
+            
+	          google.maps.event.addListener(map, "rightclick", function(event) {  
+	    
+	          if(confirm("Tandai Titik Ini? (klik pada tanda yang muncul untuk melihat pilihan)")){  
+	            var lat = event.latLng.lat();  
+	            var lng = event.latLng.lng();  
+	              
+	            var siteLatLng = new google.maps.LatLng(lat, lng);  
+	            var marker = new google.maps.Marker({  
+	                position: siteLatLng,  
+	                map: map,  
+	                title: "add data",  
+	                zIndex: 100,  
+	                html: "ddd"  
+	   
+	              });  
+	             google.maps.event.addListener(marker, "mouseover", function () {  
+	                  
+	                infowindow.setContent(this.html);  
+	                infowindow.open(map, this);  
+	              });  
+	    
+	          }  
+	            
+	        });  
+	        }  
 		</script>
 		<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBzMX-TVEnekihhupXcIu5EOVEuR64uG0A&amp;libraries=places&amp;callback=initMap">
 		</script>

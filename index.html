@@ -154,15 +154,15 @@
 	          if(confirm("Tandai Titik Ini? (klik pada tanda yang muncul untuk melihat pilihan)")){  
 	            var lat = event.latLng.lat();  
 	            var lng = event.latLng.lng();  
-	              
+	            //var form = '<h4>Tambah Data</h4><form id="formtambahdata" method="post" action="simpan.php"><br><input type="text" id="nama" placeholder="nama tempat" name="nama"><br><textarea id="keterangan" name="keterangan" placeholder="Isi Keterangan tempat"></textarea><br><input type="text" id="latlng" name="latlng" value="'+lat+','+lng+'"><br><input type="submit" value="Simpan"></form>';  
 	            var siteLatLng = new google.maps.LatLng(lat, lng);  
 	            var marker = new google.maps.Marker({  
 	                position: siteLatLng,  
 	                map: map,  
 	                title: "add data",  
 	                zIndex: 100,  
-	                html: "ddd"  
-	   
+	                html: "ddd"//form 
+	   				
 	              });  
 	             google.maps.event.addListener(marker, "mouseover", function () {  
 	                  

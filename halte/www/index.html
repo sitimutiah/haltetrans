@@ -49,9 +49,15 @@
     <link rel="stylesheet" href="font.roboto.css">
     <link rel="stylesheet" href="font.materialicons.css">
     <style>
+    	html,body {
+    		overflow: none;
+    		height: 100%;
+	        margin: 0;
+	        padding: 0;
+    	}
 		#map {
 			width: 100%;
-			height: 500px;
+			height: 100%;
 			background-color: grey;
 		}
 		.demo-layout-transparent {
@@ -107,7 +113,17 @@
 			function initMap() {
 				map = new google.maps.Map(document.getElementById('map'), {
 					center: {lat: 110.3704119, lng: -7.7853871},
-					zoom: 14
+					zoom: 14,
+					mapTypeControl: true,
+					mapTypeControlOptions: {
+						style: google.maps.MapTypeControlStyle.HORIZONTAL_BAR,
+						position: google.maps.ControlPosition.TOP_CENTER
+					},
+					zoomControl: true,
+					zoomControlOptions: {
+						position: google.maps.ControlPosition.RIGHT_CENTER
+					},
+					scaleControl: true
 				});
 
 				infoWindow = new google.maps.InfoWindow;

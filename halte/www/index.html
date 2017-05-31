@@ -117,13 +117,14 @@
 					mapTypeControl: true,
 					mapTypeControlOptions: {
 						style: google.maps.MapTypeControlStyle.HORIZONTAL_BAR,
-						position: google.maps.ControlPosition.TOP_CENTER
+						position: google.maps.ControlPosition.TOP_RIGHT
 					},
 					zoomControl: true,
 					zoomControlOptions: {
-						position: google.maps.ControlPosition.RIGHT_CENTER
+						position: google.maps.ControlPosition.TOP_RIGHT
 					},
-					scaleControl: true
+					streetViewControl: false,
+					fullscreenControl: false
 				});
 
 				infoWindow = new google.maps.InfoWindow;
@@ -187,7 +188,9 @@
 				});
 
 				google.maps.event.addListener(marker, 'click', function() {
-					infoWindow.setContent(place.name);
+					var kontenHalte = '<div>'+place.name+'</div>'+
+										'<div><button class="mdl-button mdl-js-button mdl-color--accent mdl-color-text--white"><i class="material-icons">directions</i>&nbsp;&nbsp;RUTE</button></div>';
+					infoWindow.setContent(kontenHalte);
 					infoWindow.open(map, this);
 				});
 			}

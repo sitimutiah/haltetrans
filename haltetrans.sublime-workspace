@@ -95,7 +95,7 @@
 			"file": "index.html",
 			"settings":
 			{
-				"buffer_size": 7877,
+				"buffer_size": 7930,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -147,6 +147,7 @@
 	],
 	"file_history":
 	[
+		"/C/xampp/htdocs/wp454/wp-content/themes/sdmugm/index.php",
 		"/C/xampp/htdocs/haltetrans/index.html",
 		"/C/xampp/htdocs/transjogja/transjogja.sublime-project",
 		"/C/xampp/htdocs/transjogja/styles.css",
@@ -291,6 +292,20 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"_file",
+			"file",
+			"`bab_i_komentar` TEXT NOT NULL ",
+			"BOOLEAN",
+			"\"",
+			"BOOLEAN",
+			"65535",
+			"VARCHAR",
+			"bab_i_",
+			"bab_i",
+			"bab_i_",
+			"bab_i_file",
+			"bab_i_",
+			"@attribute",
 			"infowindow",
 			"marker",
 			"infowindow",
@@ -404,21 +419,7 @@
 			"nama",
 			"total",
 			"query",
-			"user_id",
-			"user_",
-			"user",
-			"this",
-			"tanggal_lahir",
-			"tgl_lahir",
-			"password",
-			"tanggal_lahir",
-			"$pass",
-			"pass",
-			"save",
-			"form",
-			"action",
-			"span5",
-			"<"
+			"user_id"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -436,7 +437,7 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 0,
 			"sheets":
 			[
 				{
@@ -445,15 +446,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 7877,
+						"buffer_size": 7930,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								4365,
-								4365
+								4885,
+								4885
 							]
 						],
 						"settings":
@@ -461,10 +462,10 @@
 							"syntax": "Packages/HTML/HTML.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 1897.0,
+						"translation.y": 2134.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
@@ -480,8 +481,8 @@
 						"selection":
 						[
 							[
-								3458,
-								3458
+								2928,
+								2928
 							]
 						],
 						"settings":
@@ -491,10 +492,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1328.0,
+						"translation.y": 1078.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 1,
 					"type": "text"
 				}
 			]

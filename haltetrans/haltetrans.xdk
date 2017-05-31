@@ -5,7 +5,7 @@
       "projectTypeName": "com.intel.xdk.projecttype.jsapp",
       "src": "jsapp/template-blank-cordova-project-lite/sample.zip",
       "projectGuid": "cfe6f700-93fc-4da0-bc47-d47ee4715caf",
-      "lastModifiedDate": 1496209403355,
+      "lastModifiedDate": 1496219542810,
       "creationDate": 1496209261744
     },
     "sourceDirectory": "www",
@@ -137,7 +137,7 @@
           "android-signed": true
         },
         "isActive_": true,
-        "certificateId_": "",
+        "certificateId_": "DCYe_HjvPU-t3IwfsM1PNQ2",
         "cordovaCLIVersion_": "6.2.0",
         "crosswalkVersion_": "19",
         "appName_": "haltetrans",

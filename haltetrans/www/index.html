@@ -118,6 +118,10 @@
 			var directionsDisplay;
 			var directionsService;
 
+            document.addEventListener("deviceready", onDeviceReady, false);
+            function onDeviceReady() {
+            console.log("navigator.geolocation works well");
+            }
 			function initMap() {
 				directionsService = new google.maps.DirectionsService();
 				map = new google.maps.Map(document.getElementById('map'), {

@@ -44,37 +44,21 @@
     <link rel="canonical" href="http://www.example.com/">
     -->
 
-    <link rel="stylesheet" href="css/material.min.css">
-    <link rel="stylesheet" href="css/font.roboto.css">
-    <link rel="stylesheet" href="css/font.materialicons.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="material.min.css">
+    <link rel="stylesheet" href="font.roboto.css">
+    <link rel="stylesheet" href="font.materialicons.css">
+    <link rel="stylesheet" href="style.css">
     <style>
-		#map {
-			width: 100%;
-			height: 500px;
-			background-color: grey;
-		}
-		.demo-layout-transparent {
-			background: url('../assets/demos/transparent.jpg') center / cover;
-		}
+		
 		.demo-layout-transparent .mdl-layout__header,
 		.demo-layout-transparent .mdl-layout__drawer-button {
 		/* This background is dark, so we set text to white. Use 87% black instead if
 		your background is light. */
 			color: black;
 		}
-		.demo-content {
-			position: relative;
-		}
-		#ambil-lokasi {
-			position: absolute;
-			bottom: 0;
-			right: 0;
-			margin-right: 40px;
-			margin-bottom: 40px;
-			z-index: 999;
-			display: block;
-		}
+		.demo-list-icon {
+      width: 100%;
+    }
     </style>
 </head>
 <body>
@@ -88,11 +72,56 @@
     <div class="mdl-layout__drawer">
       <span class="mdl-layout-title">Menu</span>
       <nav class="mdl-navigation">
-        <a class="mdl-navigation__link" href="../">Halte Terdekat</a>
-        <a class="mdl-navigation__link" href="daftarhalte.html">Daftar Halte</a>
-        <a class="mdl-navigation__link" href="">Rute Trans Jogja</a>
-        <a class="mdl-navigation__link" href="">Bantuan</a>
+        <a class="mdl-navigation__link" href="index.html">Halte Terdekat</a>
+        <a class="mdl-navigation__link" href="halte.html">Daftar Halte</a>
+        <a class="mdl-navigation__link" href="rute.html">Rute Trans Jogja</a>
+        <a class="mdl-navigation__link" href="bantuan.html">Bantuan</a>
       </nav>
       <script src="js/material.min.js"></script>
+    </div>
+    <div class="mdl-grid">
+      <div class="mdl-cell mdl-cell--12-col">
+        <h1>Rute Trans Jogja</h1>
+        <ul class="demo-list-icon mdl-list">
+          <li class="mdl-list__item mdl-list__item--three-line">
+            <span class="mdl-list__item-primary-content">
+              <i class="material-icons mdl-list__item-icon">directions_bus</i>
+              <span>Halte 1</span>
+              <span class="mdl-list__item-text-body">
+                Jl. Damai Sejahtera Selamanya
+              </span>
+            </span>
+            <span class="mdl-list__item-secondary-content">
+              <a class="mdl-list__item-secondary-action" href="#"><i class="material-icons">pageview</i></a>
+            </span>
+          </li>
+          <li class="mdl-list__item mdl-list__item--three-line">
+            <span class="mdl-list__item-primary-content">
+              <i class="material-icons mdl-list__item-icon">directions_bus</i>
+              <span>Halte 2</span>
+              <span class="mdl-list__item-text-body">
+                Jl. Damai Sejahtera Selamanya
+              </span>
+            </span>
+            <span class="mdl-list__item-secondary-content">
+              <a class="mdl-list__item-secondary-action" href="#"><i class="material-icons">pageview</i></a>
+            </span>
+          </li>
+          <li class="mdl-list__item mdl-list__item--three-line">
+            <span class="mdl-list__item-primary-content">
+              <i class="material-icons mdl-list__item-icon">directions_bus</i>
+              <span>Halte 3</span>
+              <span class="mdl-list__item-text-body">
+                Jl. Damai Sejahtera Selamanya
+              </span>
+            </span>
+            <span class="mdl-list__item-secondary-content">
+              <a class="mdl-list__item-secondary-action" href="#"><i class="material-icons">pageview</i></a>
+            </span>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <script src="material.min.js"></script>
 </body>
 </html>

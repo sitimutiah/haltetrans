@@ -47,7 +47,7 @@
     <link rel="stylesheet" href="material.min.css">
     <link rel="stylesheet" href="font.roboto.css">
     <link rel="stylesheet" href="font.materialicons.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles.css">
     <style>
 		
 		.demo-layout-transparent .mdl-layout__header,
@@ -77,7 +77,6 @@
         <a class="mdl-navigation__link" href="rute.html">Rute Trans Jogja</a>
         <a class="mdl-navigation__link" href="bantuan.html">Bantuan</a>
       </nav>
-      <script src="js/material.min.js"></script>
     </div>
     <div class="mdl-grid">
       <div class="mdl-cell mdl-cell--12-col">
@@ -120,8 +119,29 @@
             </span>
           </li>
         </ul>
+        <div id="halte"></div>
       </div>
     </div>
     <script src="material.min.js"></script>
+    <script type="text/javascript">
+      var xmlhttp, myObj, x, txt = "";
+      xmlhttp = new XMLHttpRequest();
+      xmlhttp.onreadystatechange = function() {
+          if (this.readyState == 4 && this.status == 200) {
+              myObj = JSON.parse(this.responseText);
+              txt += "<table class=\"mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp\"><thead><tr><th class=\"mdl-data-table__cell--non-numeric\">Nama</th><th class=\"mdl-data-table__cell--non-numeric\">Lokasi</th></tr></thead><tbody>";
+              for (x in myObj) {
+                  txt += "<tr>";
+                  txt += "<td class=\"mdl-data-table__cell--non-numeric\">" + myObj[x].halte_nama + "</td>";
+                  txt += "<td class=\"mdl-data-table__cell--non-numeric\">" + myObj[x].lokasi + "</td>";
+                  txt += "</tr>";
+              }
+              txt += "</tbody></table>";
+              document.getElementById("halte").innerHTML = txt;
+          }
+      };
+      xmlhttp.open("GET", "../gethalte.php", true);
+      xmlhttp.send();
+    </script>
 </body>
 </html>

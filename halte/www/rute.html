@@ -92,11 +92,11 @@
       xmlhttp.onreadystatechange = function() {
           if (this.readyState == 4 && this.status == 200) {
               myObj = JSON.parse(this.responseText);
-              txt += "<table class=\"mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp\"><thead><tr><th class=\"mdl-data-table__cell--non-numeric\">Nama</th><th class=\"mdl-data-table__cell--non-numeric\">Lokasi</th></tr></thead><tbody>";
+              txt += "<table class=\"mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp\"<thead><tr><th class=\"mdl-data-table__cell--non-numeric\">Nama</th><th class=\"mdl-data-table__cell--non-numeric\">Lokasi</th></tr></thead><tbody>";
               for (x in myObj) {
                   txt += "<tr>";
                   txt += "<td class=\"mdl-data-table__cell--non-numeric\">" + myObj[x].rute_nama + "</td>";
-                  txt += "<td class=\"mdl-data-table__cell--non-numeric\">" + myObj[x].deskripsi + "</td>";
+                  txt += "<td style=\"word-wrap: break-word\" class=\"mdl-data-table__cell--non-numeric\"><p>" + myObj[x].deskripsi + "</td>";
                   txt += "</tr>";
               }
               txt += "</tbody></table>";

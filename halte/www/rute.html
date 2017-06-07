@@ -82,46 +82,30 @@
     <div class="mdl-grid">
       <div class="mdl-cell mdl-cell--12-col">
         <h1>Rute Trans Jogja</h1>
-        <ul class="demo-list-icon mdl-list">
-          <li class="mdl-list__item mdl-list__item--three-line">
-            <span class="mdl-list__item-primary-content">
-              <i class="material-icons mdl-list__item-icon">directions_bus</i>
-              <span>Halte 1</span>
-              <span class="mdl-list__item-text-body">
-                Jl. Damai Sejahtera Selamanya
-              </span>
-            </span>
-            <span class="mdl-list__item-secondary-content">
-              <a class="mdl-list__item-secondary-action" href="#"><i class="material-icons">pageview</i></a>
-            </span>
-          </li>
-          <li class="mdl-list__item mdl-list__item--three-line">
-            <span class="mdl-list__item-primary-content">
-              <i class="material-icons mdl-list__item-icon">directions_bus</i>
-              <span>Halte 2</span>
-              <span class="mdl-list__item-text-body">
-                Jl. Damai Sejahtera Selamanya
-              </span>
-            </span>
-            <span class="mdl-list__item-secondary-content">
-              <a class="mdl-list__item-secondary-action" href="#"><i class="material-icons">pageview</i></a>
-            </span>
-          </li>
-          <li class="mdl-list__item mdl-list__item--three-line">
-            <span class="mdl-list__item-primary-content">
-              <i class="material-icons mdl-list__item-icon">directions_bus</i>
-              <span>Halte 3</span>
-              <span class="mdl-list__item-text-body">
-                Jl. Damai Sejahtera Selamanya
-              </span>
-            </span>
-            <span class="mdl-list__item-secondary-content">
-              <a class="mdl-list__item-secondary-action" href="#"><i class="material-icons">pageview</i></a>
-            </span>
-          </li>
-        </ul>
+        <div id="halte"></div>
       </div>
     </div>
     <script src="material.min.js"></script>
+    <script src="material.min.js"></script>
+    <script type="text/javascript">
+      var xmlhttp, myObj, x, txt = "";
+      xmlhttp = new XMLHttpRequest();
+      xmlhttp.onreadystatechange = function() {
+          if (this.readyState == 4 && this.status == 200) {
+              myObj = JSON.parse(this.responseText);
+              txt += "<table class=\"mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp\"><thead><tr><th class=\"mdl-data-table__cell--non-numeric\">Nama</th><th class=\"mdl-data-table__cell--non-numeric\">Lokasi</th></tr></thead><tbody>";
+              for (x in myObj) {
+                  txt += "<tr>";
+                  txt += "<td class=\"mdl-data-table__cell--non-numeric\">" + myObj[x].halte_nama + "</td>";
+                  txt += "<td class=\"mdl-data-table__cell--non-numeric\">" + myObj[x].lokasi + "</td>";
+                  txt += "</tr>";
+              }
+              txt += "</tbody></table>";
+              document.getElementById("halte").innerHTML = txt;
+          }
+      };
+      xmlhttp.open("GET", "../gethalte.php", true);
+      xmlhttp.send();
+    </script>
 </body>
 </html>
